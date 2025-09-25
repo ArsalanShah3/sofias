@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Carousel 2 Images</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Carousel Height */
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+      height: 80vh;
+    }
+
+    /* Background Image */
+    .carousel-item {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Controls + Dots row */
+    .carousel-controls-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    /* Prev/Next buttons */
+    .carousel-controls-overlay .control-btn {
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 8px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .carousel-controls-overlay .control-btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    /* Indicators (dots) */
+    .carousel-indicators {
+      position: static;
+      margin: 0;
+      display: flex;
+      gap: 8px;
+    }
+    .carousel-indicators [data-bs-target] {
+      background-color: #fff;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+    .carousel-indicators .active {
+      background-color: #f00; /* Active dot red */
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="imageCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
+  
+  <!-- Slides with Background Images -->
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="background-image: url('sofia.png');"></div>
+    <div class="carousel-item" style="background-image: url('https://via.placeholder.com/1200x800?text=Second+Image');"></div>
+  </div>
+
+  <!-- Custom Controls + Indicators Overlay -->
+  <div class="carousel-controls-overlay">
+    <!-- Prev -->
+    <button class="control-btn" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+      &#10094;
+    </button>
+
+    <!-- Dots -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1"></button>
+    </div>
+
+    <!-- Next -->
+    <button class="control-btn" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+      &#10095;
+    </button>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .navbar {
+            position: relative;
+            min-height: 100px;
+            background-color: #FFFFFF;
+            font-family: Inter, sans-serif;
+        }
+
+        .nav-link {
+            color: black !important;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .nav-link:hover {
+            color: rgba(0, 0, 0, 0.71) !important;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            transition: height 0.3s ease;
+        }
+
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-icons i {
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: black;
+        }
+
+        /* Hover dropdown */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 991.98px) {
+            .navbar-brand {
+                order: 1;
+                position: static;
+                transform: none;
+                margin: 0 auto;
+            }
+            
+            .navbar-brand img {
+                height: 60px;
+            }
+            
+            .navbar-nav {
+                margin-right: 0;
+                text-align: center;
+            }
+            
+            .navbar-toggler {
+                order: 0;
+            }
+            
+            .navbar-icons {
+                order: 2;
+                margin-left: auto;
+            }
+            
+            .container {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar-brand img {
+                height: 50px;
+            }
+            
+            .navbar-icons {
+                gap: 10px;
+            }
+            
+            .navbar-icons i {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3">
+        <div class="container d-flex align-items-center justify-content-between">
+            <!-- Toggler for mobile -->
+            <button class="navbar-toggler order-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Left Nav Links -->
+            <div class="collapse navbar-collapse order-lg-1 order-3" id="navbarContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Story</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+
+                    <!-- Shop with Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+                            <li><a class="dropdown-item" href="#">All Products</a></li>
+                            <li><a class="dropdown-item" href="#">Honey</a></li>
+                            <li><a class="dropdown-item" href="#">Sweeteners</a></li>
+                            <li><a class="dropdown-item" href="#">Maple Syrup</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Center Logo -->
+            <a class="navbar-brand order-lg-2 order-1 mx-lg-auto" href="#">
+                <img src="https://via.placeholder.com/150x70/FFFFFF/000000?text=LOGO" alt="Logo">
+            </a>
+
+            <!-- Right Icons -->
+            <div class="navbar-icons order-lg-3 order-2">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content for demonstration -->
+    <div class="container mt-5">
+        <h1>Responsive Navbar Example</h1>
+        <p>Resize your browser window to see how the navbar adapts to different screen sizes.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="ur">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Featured Collection — Fixed Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --green:#0f4f36;
+    }
+    body{
+      background:#fff;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      padding: 32px 12px;
+    }
+
+    .carousel-wrap{
+      max-width:1200px;
+      margin:0 auto;
+      position: relative;
+      padding: 20px 10px;
+    }
+
+    .section-heading{
+      text-align:center;
+      font-weight:900;
+      font-size:40px;
+      letter-spacing:2px;
+      color:#5b3828;
+      margin-bottom: 20px;
+      font-family: "Bebas Neue", sans-serif;
+    }
+
+    .carousel-viewport{
+      overflow:hidden;
+      width: calc(3 * 320px + 2 * 28px); /* 3 cards + 2 gaps */
+      margin: 0 auto;
+    }
+
+    .carousel-track{
+      display:flex;
+      gap: 28px;
+      transition: transform 420ms cubic-bezier(.22,.9,.28,1);
+      align-items: stretch;
+      padding: 12px 0;
+      will-change: transform;
+    }
+
+    .product-card{
+      width: 320px;
+      min-width: 320px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .card-top{
+      background:#fff;
+      border-radius: 34px 34px 22px 22px;
+      padding: 32px 20px 18px;
+      box-shadow: 0 6px 18px rgba(10,10,10,0.06);
+      position: relative;
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      height:300px;
+    }
+
+    .card-top::before{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      background: rgba(0,0,0,0.03);
+      border-radius:50%;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:0;
+    }
+
+    .product-img{
+      max-height:220px;
+      max-width:220px;
+      object-fit:contain;
+      z-index:2;
+    }
+
+    .card-bottom{
+      background: var(--green);
+      color:white;
+      border-radius: 0 0 22px 22px;
+      padding: 18px 20px;
+      margin-top: -6px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .card-title{ font-size:20px; font-weight:700; }
+    .card-sub{ font-size:13px; opacity:0.95; }
+
+    .nav-btn{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      box-shadow: 0 6px 18px rgba(10,10,10,0.08);
+      border: 2px solid rgba(15,79,54,0.08);
+      cursor:pointer;
+      transition: transform .12s ease, opacity .12s ease;
+      z-index: 999;
+      user-select: none;
+    }
+    .nav-left{ left:-18px; }
+    .nav-right{ right:-18px; }
+    .nav-btn:active{ transform: translateY(-50%) scale(.98); }
+    .nav-btn.disabled{ opacity:.35; pointer-events:none; }
+
+    .nav-btn svg{ width:18px; height:18px; stroke:var(--green); stroke-width:2; fill:none; }
+
+    /* responsive tweaks */
+    @media (max-width:1100px){
+      .product-card{ width:280px; min-width:280px; }
+      .carousel-viewport{ width: calc(3 * 280px + 2 * 28px); }
+    }
+    @media (max-width:900px){
+      .product-card{ width: calc(50% - 18px); min-width: calc(50% - 18px); }
+      .carousel-track{ gap:18px; }
+      .carousel-viewport{ width: 100%; }
+      .nav-left{ left:6px; }
+      .nav-right{ right:6px; }
+    }
+    @media (max-width:600px){
+      .product-card{ width:100%; min-width:100%; }
+      .card-top{ height:260px; padding:18px 12px; }
+      .carousel-viewport{ width: 100%; }
+      .nav-left{ left:8px; }
+      .nav-right{ right:8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carousel-wrap">
+    <div class="section-heading">FEATURED COLLECTION</div>
+
+    <div class="carousel-viewport">
+      <div id="track" class="carousel-track">
+        <!-- 6 cards -->
+        <div class="product-card">
+          <div class="card-top"><img class="product-img" src="https://i.imgur.com/3X9QYQy.png" alt="Organic Honey"></div>
+          <div class="card-bottom"><div class="card-title">Organic Honey</div><div class="card-sub">Zero Sugar</div></div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-top"><img class="product-img" src="https://i.imgur.com/9u6k8ZP.png" alt="Allulose"></div>
+          <div class="card-bottom"><div class="card-title">Allulose Sweetener</div><div class="card-sub">Sugar Alternative</div></div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-top"><img class="product-img" src="https://i.imgur.com/7j8m2Yk.png" alt="Erythritol"></div>
+          <div class="card-bottom"><div class="card-title">Erythritol Sweetener</div><div class="card-sub">Plant Based</div></div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-top"><img class="product-img" src="https://i.imgur.com/3X9QYQy.png" alt="Almond Flour"></div>
+          <div class="card-bottom"><div class="card-title">Almond Flour</div><div class="card-sub">Gluten Free</div></div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-top"><img class="product-img" src="https://i.imgur.com/9u6k8ZP.png" alt="Coconut Sugar"></div>
+          <div class="card-bottom"><div class="card-title">Coconut Sugar</div><div class="card-sub">Palm Friendly</div></div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-top"><img class="product-img" src="https://i.imgur.com/7j8m2Yk.png" alt="Date Syrup"></div>
+          <div class="card-bottom"><div class="card-title">Date Syrup</div><div class="card-sub">Natural Sweetener</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- nav -->
+    <button id="prev" class="nav-btn nav-left disabled" aria-label="previous">
+      <svg viewBox="0 0 24 24"><path d="M15 18L9 12l6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button id="next" class="nav-btn nav-right" aria-label="next">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <script>
+    (function(){
+      const track = document.getElementById('track');
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+      const cards = Array.from(track.children);
+      let index = 0;
+
+      function slide(){
+        const gap = 28; // fixed gap as per CSS
+        const cardWidth = 320; // fixed card width as per CSS
+        
+        const translateX = -index * (cardWidth + gap);
+        track.style.transform = `translateX(${translateX}px)`;
+
+        // Update buttons
+        prevBtn.classList.toggle('disabled', index <= 0);
+        nextBtn.classList.toggle('disabled', index >= cards.length - 3);
+      }
+
+      nextBtn.addEventListener('click', () => {
+        if(index < cards.length - 3){
+          index++;
+          slide();
+        }
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if(index > 0){
+          index--;
+          slide();
+        }
+      });
+
+      // Handle responsive adjustments
+      function handleResize(){
+        const viewport = track.parentElement;
+        if(window.innerWidth <= 900){
+          viewport.style.width = '100%';
+        } else {
+          viewport.style.width = 'calc(3 * 320px + 2 * 28px)';
+          if(window.innerWidth <= 1100){
+            viewport.style.width = 'calc(3 * 280px + 2 * 28px)';
+          }
+        }
+        slide();
+      }
+
+      window.addEventListener('load', handleResize);
+      window.addEventListener('resize', handleResize);
+
+      // init immediately
+      slide();
+
+    })();
+  </script>
+
+</body>
+</html>
