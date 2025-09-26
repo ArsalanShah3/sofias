@@ -526,6 +526,89 @@
 }
 
 
+.faq-title {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #4b2e1e;
+}
+
+.faq-accordion .accordion-item {
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.faq-accordion .accordion-button {
+  font-weight: 600;
+  color: #2b2b2b;
+  background: #fff;
+  box-shadow: none !important;
+  position: relative;
+  padding-right: 3rem;
+}
+
+.faq-accordion .accordion-button:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.faq-accordion .accordion-body {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* custom circle icon */
+.faq-accordion .toggle-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #4b2e1e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+
+/* Bootstrap ke default arrow ko forcefully hide karo */
+.accordion-button::after {
+  display: none !important;
+  background-image: none !important;
+  content: "" !important;
+}
+
+
+.accordion-button::after {
+  display: none !important; /* Bootstrap arrow hide */
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: #3c2009; /* circle color */
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+}
+
+
+
     /* ========== RESPONSIVE STYLES ========== */
     
     /* Mobile responsive adjustments - Navbar */
@@ -978,6 +1061,10 @@
         width: 100%;
         margin-top: 15px;
       }
+      .faq-title {
+  font-size: 2rem;
+  
+}
     }
   </style>
 </head>
@@ -1277,6 +1364,105 @@
 
 
 
+<section class="faq-section container my-5">
+  <div class="row g-4 align-items-start my-5">
+    <!-- Left Side -->
+    <div class="col-lg-5 col-md-12">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <p class="mt-3 text-muted " style="font-size: 1rem;">
+        We’ve answered some of the most common ones below to help you better understand our products and values.
+      </p>
+      <button class="btn btn-success mt-3">Contact Us</button>
+    </div>
+
+    <!-- Right Side -->
+    <div class="col-lg-7 col-md-12">
+      <div class="accordion faq-accordion" id="faqAccordion">
+        
+        <!-- Question 1 -->
+       <!-- Question 1 -->
+<div class="accordion-item p-md-2">
+  <h2 class="accordion-header" id="faqHeadingOne">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+      What makes Sofia’s sweeteners different from regular sugar?
+      <span class="toggle-icon">+</span>
+    </button>
+  </h2>
+  <div id="faqOne" class="accordion-collapse collapse" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+    <div class="accordion-body">
+      Our sweeteners provide the same satisfying sweetness as sugar, but with zero or minimal calories and no impact on blood sugar—perfect for a healthier lifestyle.
+    </div>
+  </div>
+</div>
+
+
+        <!-- Question 2 -->
+        <div class="accordion-item p-md-2">
+          <h2 class="accordion-header" id="faqHeadingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+              Are your products suitable for diabetics and keto diets?
+              <span class="toggle-icon">+</span>
+            </button>
+          </h2>
+          <div id="faqTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes! Our sweeteners are keto-friendly and safe for diabetics as they do not spike blood sugar.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="accordion-item p-md-2">
+          <h2 class="accordion-header" id="faqHeadingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+              Are Sofia’s products natural?
+              <span class="toggle-icon">+</span>
+            </button>
+          </h2>
+          <div id="faqThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              All our products are plant-based, naturally sourced, and made without artificial additives.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="accordion-item p-md-2">
+          <h2 class="accordion-header" id="faqHeadingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+              Can I use your sweeteners for baking and cooking?
+              <span class="toggle-icon">+</span>
+            </button>
+          </h2>
+          <div id="faqFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Absolutely! Our sweeteners are versatile and can be used in cooking, baking, or beverages.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="accordion-item p-md-2">
+          <h2 class="accordion-header" id="faqHeadingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">
+              Where do your ingredients come from?
+              <span class="toggle-icon">+</span>
+            </button>
+          </h2>
+          <div id="faqFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              We carefully source our ingredients from trusted farms and suppliers to ensure top quality and sustainability.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
    <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
@@ -1482,6 +1668,23 @@
   });
 
 })();
+
+
+// ✅ toggle + and – automatically
+document.querySelectorAll('.accordion-button').forEach(button => {
+  button.addEventListener('click', function () {
+    setTimeout(() => {
+      document.querySelectorAll('.accordion-button').forEach(btn => {
+        const icon = btn.querySelector('.toggle-icon');
+        if (btn.classList.contains('collapsed')) {
+          icon.textContent = "+";
+        } else {
+          icon.textContent = "–";
+        }
+      });
+    }, 150);
+  });
+});
 
 
   </script>
