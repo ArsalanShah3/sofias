@@ -11,6 +11,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <style>
+    :root {
+      --green: #0f4f36;
+      --brown: #5b3828;
+      --cream: #F6F1ED;
+      --white: #FFFFFF;
+      --dark-green: #213E23;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -19,24 +27,26 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #F6F1ED;
+      background-color: var(--cream);
       overflow-x: hidden;
     }
     
+    /* Header Styles */
     .header {
       height: 35px;
-      background-color: #213E23;
+      background-color: var(--dark-green);
     }
     
     .header img {
       height: 35px;
     }
 
+    /* Navbar Styles */
     .navbar {
       position: relative;
       height: auto;
       min-height: 100px;
-      background-color: #FFFFFF;
+      background-color: var(--white);
       font-family: Inter;
       font-style: regular !important;
     }
@@ -76,38 +86,13 @@
       margin-top: 0;
     }
 
-    /* Mobile responsive adjustments */
-    @media (max-width: 991.98px) {
-      .navbar-brand {
-        position: static;
-        transform: none;
-        order: 2;
-        margin: 0 auto;
-      }
-      
-      .navbar-nav {
-        text-align: center;
-        margin: 10px 0;
-      }
-      
-      .navbar-icons {
-        order: 3;
-        margin-left: auto;
-      }
-      
-      .container {
-        flex-wrap: wrap;
-      }
-    }
-
-    /* Carousel Height - Only responsive height changes */
+    /* Carousel Styles */
     .carousel,
     .carousel-inner,
     .carousel-item {
       height: 100vh;
     }
 
-    /* Background Image */
     .carousel-item {
       background-size: cover;
       background-position: center;
@@ -115,7 +100,6 @@
       position: relative;
     }
 
-    /* Carousel Text Content - Exact like image */
     .carousel-content {
       position: absolute;
       top: 50%;
@@ -143,7 +127,6 @@
       font-family: DirtyEgo, sans-serif;
     }
 
-    /* Shop Now Button */
     .shop-now-btn {
       background: transparent;
       border: 2px solid rgb(0, 0, 0);
@@ -164,7 +147,6 @@
       color: rgb(255, 255, 255);
     }
 
-    /* Controls + Dots row */
     .carousel-controls-overlay {
       position: absolute;
       bottom: 20px;
@@ -176,7 +158,6 @@
       z-index: 10;
     }
 
-    /* Prev/Next buttons */
     .carousel-controls-overlay .control-btn {
       background: rgba(0,0,0,0.5);
       border: none;
@@ -192,7 +173,6 @@
       background: rgba(0,0,0,0.8);
     }
 
-    /* Indicators (dots) */
     .carousel-indicators {
       position: static;
       margin: 0;
@@ -212,8 +192,367 @@
       background-color: #f00;
       opacity: 1;
     }
+
+    /* Product Carousel Styles - Common for both carousels */
+    .carousel-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      padding: 20px 10px;
+      overflow: visible;
+    }
     
-    /* Mobile carousel adjustments - ONLY TEXT SIZE CHANGES */
+    .section-heading {
+      text-align: center;
+      font-weight: 900;
+      font-size: 40px;
+      letter-spacing: 2px;
+      color: var(--brown);
+      margin-bottom: 20px;
+      font-family: "Bebas Neue", sans-serif;
+    }
+
+    .carousel-viewport {
+      position: relative;
+      width: calc(3 * 320px + 2 * 28px);
+      margin: 0 auto;
+      overflow: hidden;
+      padding-top: 80px;
+      margin-top: -80px;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 28px;
+      transition: transform 420ms cubic-bezier(.22,.9,.28,1);
+      align-items: stretch;
+      padding: 12px 0;
+      will-change: transform;
+      overflow: visible; 
+    }
+
+    .product-card {
+      width: 320px;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      overflow: visible !important;
+    }
+
+    .card-top {
+      background: var(--white);
+      border-radius: 80px 80px 0 0;
+      padding: 32px 20px 18px;
+      box-shadow: 0 6px 18px rgba(10,10,10,0.06);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 300px;
+      overflow: visible;
+    }
+
+    .product-img {
+      max-height: 430px !important;
+      max-width: 450px !important;
+      object-fit: cover;
+      position: relative;
+      bottom: -50px;
+      z-index: 2;
+      overflow: visible !important;
+    }
+
+    .card-bottom {
+      background: var(--green);
+      color: white;
+      border-radius: 0 0 20px 20px;
+      padding: 18px 20px;
+      margin-top: -6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .card-title { 
+      font-size: 22px; 
+      font-weight: 700; 
+    }
+    
+    .card-sub { 
+      font-size: 13px; 
+      opacity: 0.95; 
+    }
+
+    .nav-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 60%;
+      transform: translateY(-50%);
+      box-shadow: 0 6px 18px rgba(10,10,10,0.08);
+      border: 2px solid rgba(0, 0, 0, 0.434);
+      cursor: pointer;
+      transition: transform .12s ease, opacity .12s ease;
+      z-index: 999;
+      user-select: none;
+      background: white;
+    }
+    
+    .nav-left { left: -18px; }
+    .nav-right { right: -18px; }
+    
+    .nav-btn:active { transform: translateY(-50%) scale(.98); }
+    .nav-btn.disabled { opacity: .35; pointer-events: none; }
+
+    .nav-btn svg { 
+      width: 18px; 
+      height: 18px; 
+      stroke: var(--green); 
+      stroke-width: 2; 
+      fill: none; 
+    }
+
+    /* Sweetness Section */
+    .sweetness {
+      width: 80%;
+      height: 500px;
+      background-image: url('./sweetnes.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 40px 0;
+      position: relative;
+      padding-inline: 30px;
+    }
+    
+    .sweetness .cup {
+      width: 280px;
+      height: 250px;
+      object-fit: contain;
+      position: absolute;
+      left: -70px;
+      bottom: -98px;
+    }
+    
+    .sweetness .img1 {
+      width: 450px;
+      height: 450px;
+      object-fit: cover;
+      z-index: 1;
+      filter: drop-shadow(0 30px 12px rgba(0, 0, 0, 0.373));
+    }
+    
+    .sweetness .img2 {
+      width: 500px;
+      height: 450px;
+      object-fit: cover;
+      position: absolute;
+      left: 100px;
+      top: 40px;
+      z-index: 2;
+      filter: drop-shadow(0 30px 25px rgba(0, 0, 0, 0.341));
+    }
+    
+    .sweet-haeding {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-family: "Bebas Neue", sans-serif;
+      font-style: regular !important;
+      text-transform: uppercase;
+    }
+    
+    .sweet-para, .sweet-para1 {
+      font-size: 12px;
+      color: #ffffffb6;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    
+    .sweet-para1 {
+      font-weight: 600;
+      margin-top: 15px;
+    }
+    
+    .sweet1 {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* Seller Section - FIXED */
+    .sellerbest {
+      height: auto;
+      min-height: 650px;
+      width: 100%;
+      background-image: url('./seller.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+      position: relative;
+      margin-top: 150px;
+      margin-bottom: 50px;
+      padding: 50px 0;
+      overflow-x: hidden;
+      overflow-y: visible;
+      
+    }
+    
+    .tree {
+      height: 180px;
+      width: 150px;
+      transform: rotate(90deg);
+      position: absolute;
+      left: -25px;
+      top: -70px;
+      z-index: 1;
+    }
+    
+    .tree1 {
+      height: 250px;
+      width: 180px;
+      transform: rotate(-30deg);
+      position: absolute;
+      right: -20px;
+      top: -140px;
+      z-index: 1;
+    }
+    
+    .coconut1 {
+      height: 140px;
+      width: 170px;
+      position: absolute;
+      right: 50px;
+      top: -70px;
+      z-index: 1;
+    }
+    
+    .sellerh1 {
+      font-size: 140px;
+      color: #FFFFFF1A;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: 5px;
+      line-height: 1;
+      margin-top: -30px;
+      z-index: 1;
+      position: relative;
+    }
+    
+    .carousel-wrap-best {
+      width: 80%;
+      max-width: 1200px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      margin-top: 30px;
+    }
+
+    /* Active card styling for second carousel */
+    .product-card2.active {
+      transform: scale(1.1);
+      opacity: 1;
+      filter: blur(0);
+      z-index: 2;
+    }
+
+    .product-card2 {
+      flex: 0 0 auto;
+      margin: 0 15px;
+      text-align: center;
+      transition: transform 0.6s ease, filter 0.6s ease, opacity 0.6s ease;
+      opacity: 0.6;
+      transform: scale(0.8);
+      filter: blur(2px);
+      z-index: 1;
+    }
+
+    .product-card2 .product-img2 {
+      max-height: 250px;
+      transition: transform 0.6s ease;
+    }
+
+    .product-card2.active .product-img2 {
+      max-height: 300px;
+    }
+
+    .aspire-card {
+  background: url('./aspire.jpg') center/cover no-repeat;
+  border-radius: 15px;
+  min-height: 330px;
+  position: relative;
+  overflow: hidden;
+}
+
+.aspire-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45); /* halki si black shade */
+  border-radius: 15px;
+}
+
+.aspire-card .content {
+  position: relative;
+  z-index: 2;
+}
+
+.drive-card {
+  background-color: #004d32; /* dark green */
+  border-radius: 15px;
+  min-height: 300px;
+}
+
+.aspire-card h2, 
+.drive-card h2 {
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 1px;
+}
+
+.drive-card ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.drive-card ul li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+
+    /* ========== RESPONSIVE STYLES ========== */
+    
+    /* Mobile responsive adjustments - Navbar */
+    @media (max-width: 991.98px) {
+      .navbar-brand {
+        position: static;
+        transform: none;
+        order: 2;
+        margin: 0 auto;
+      }
+      
+      .navbar-nav {
+        text-align: center;
+        margin: 10px 0;
+      }
+      
+      .navbar-icons {
+        order: 3;
+        margin-left: auto;
+      }
+      
+      .container {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Mobile carousel adjustments */
     @media (max-width: 768px) {
       .carousel,
       .carousel-inner,
@@ -268,543 +607,383 @@
         letter-spacing: 1px;
       }
     }
-    
-    :root{
-      --green:#0f4f36;
-    }
-  
 
-    .carousel-wrap{
-      max-width:1200px;
-      margin:0 auto;
-      position: relative;
-      padding: 20px 10px;
-      overflow: visible;
-    }
-    
-    .section-heading{
-      text-align:center;
-      font-weight:900;
-      font-size:40px;
-      letter-spacing:2px;
-      color:#5b3828;
-      margin-bottom: 20px;
-      font-family: "Bebas Neue", sans-serif;
-    }
-
-    .carousel-viewport {
-      position: relative;
-      width: calc(3 * 320px + 2 * 28px);
-      margin: 0 auto;
-      overflow: hidden;
-      padding-top: 80px;
-      margin-top: -80px;
-    }
-
-    .carousel-track{
-      display:flex;
-      gap: 28px;
-      transition: transform 420ms cubic-bezier(.22,.9,.28,1);
-      align-items: stretch;
-      padding: 12px 0;
-      will-change: transform;
-      overflow: visible; 
-    }
-
-    .product-card{
-      width: 320px;
-      min-width: 320px;
-      display:flex;
-      flex-direction:column;
-      overflow: visible !important;
-    }
-
-    .card-top {
-      background:#fff;
-      border-radius: 80px 80px 0 0;
-      padding: 32px 20px 18px;
-      box-shadow: 0 6px 18px rgba(10,10,10,0.06);
-      position: relative;
-      display:flex;
-      justify-content:center;
-      align-items:flex-end;
-      height: 300px;
-      overflow: visible;
-    }
-
-    .product-img{
-      max-height:430px !important;
-      max-width:450px !important;
-      object-fit: cover;
-      position: relative;
-      bottom: -50px;
-      z-index:2;
-      overflow: visible !important;
-    }
-
-    .card-bottom{
-      background: var(--green);
-      color:white;
-      border-radius: 0 0 20px 20px;
-      padding: 18px 20px;
-      margin-top: -6px;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    
-    .card-title{ 
-      font-size:22px; 
-      font-weight:700; 
-    }
-    
-    .card-sub{ 
-      font-size:13px; 
-      opacity:0.95; 
-    }
-
-    .nav-btn{
-      width:46px;
-      height:46px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:absolute;
-      top:60%;
-      transform:translateY(-50%);
-      box-shadow: 0 6px 18px rgba(10,10,10,0.08);
-      border: 2px solid rgba(0, 0, 0, 0.434);
-      cursor:pointer;
-      transition: transform .12s ease, opacity .12s ease;
-      z-index: 999;
-      user-select: none;
-      background: white;
-    }
-    
-    .nav-left{ left:-18px; }
-    .nav-right{ right:-18px; }
-    
-    .nav-btn:active{ transform: translateY(-50%) scale(.98); }
-    .nav-btn.disabled{ opacity:.35; pointer-events:none; }
-
-    .nav-btn svg{ width:18px; height:18px; stroke:var(--green); stroke-width:2; fill:none; }
-
-    /* responsive tweaks - ONLY LAYOUT CHANGES, NO CARD SIZE CHANGES */
-    @media (max-width:1100px){
-      .carousel-viewport{ 
+    /* Carousel responsive tweaks */
+    @media (max-width: 1100px) {
+      .carousel-viewport { 
         width: calc(3 * 320px + 2 * 28px); 
       }
     }
     
-    @media (max-width:1000px){
-      .carousel-viewport{ 
+    @media (max-width: 1000px) {
+      .carousel-viewport { 
         width: calc(2 * 320px + 28px); 
       }
     }
     
-    @media (max-width:680px){
-      .carousel-viewport{ 
+    @media (max-width: 680px) {
+      .carousel-viewport { 
         width: 320px; 
       }
     }
     
-    @media (max-width:600px){
-      .carousel-viewport{ 
+    @media (max-width: 600px) {
+      .carousel-viewport { 
         width: 320px; 
       }
       
-      .nav-left{ left:8px; }
-      .nav-right{ right:8px; }
-    }
-    .sweetness{
-      width: 80%;
-      height: 500px;
-      background-image: url('./sweetnes.png');
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      margin: 40px 0;
-      position: relative;
-      padding-inline: 30px;
-    }
-    .sweetness .cup{
-      width: 280px;
-      height: 250px;
-      object-fit: contain;
-      position: absolute;
-      /* top: 0; */
-      left: -70px;
-      bottom: -98px;
-    }
-    
-    .sweetness .img1{
-      width: 450px;
-      height: 450px;
-      object-fit: cover;
-      z-index: 1;
-       filter: drop-shadow(0 30px 12px rgba(0, 0, 0, 0.373));
-       
-    
-    }
-    .sweetness .img2{
-      width: 500px;
-      height: 450px;
-      object-fit: cover;
-      position: absolute;
-      left: 100px;
-      top: 40px;
-      z-index: 2;
-      filter: drop-shadow(0 30px 25px rgba(0, 0, 0, 0.341));
-    }
-    .sweet-haeding{
-      font-size: 24px;
-      font-weight: 900;
-      color: #ffffff;
-      margin-bottom: 20px;
-      font-family: "Bebas Neue", sans-serif;
-      font-style: regular !important;
-      text-transform: uppercase;
-    }
-    .sweet-para{
-      font-size: 12px;
-      color: #ffffffb6;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-    .sweet-para1{
-      font-size: 12px;
-      color: #ffffffb6;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-    .sweet1{
-      width: 35px;
-      height: 35px;
-      /* object-fit: contain; */
-    }
-    .sweet-para1{
-       font-size: 12px;
-      color: #ffffffb6;
-      line-height: 1.6;
-      font-weight: 600;
-      margin-top: 15px;
+      .nav-left { left: 8px; }
+      .nav-right { right: 8px; }
     }
 
-    /* ----- Extra small devices (mobile phones, <576px) ----- */
-@media (max-width: 575px) {
-  .sweetness{
-      width: 95%;
-      height: auto;
-      /* padding-inline: 50px; */
-      padding-bottom: 40px;
-      padding-top: 5px;
-      margin: auto;
-    }
-    .sweetness .cup{
-      width: 160px;
-      height: 160px;
-      /* top: 0; */
-      left: -10px;
-      bottom: -80px;
-    }
-    
-    .sweetness .img1{
-      width: 270px;
-      height: 270px;
-      /* margin-left: -60px; */
-       
-    
-    }
-    .sweetness .img2{
-      width: 270px;
-      height: 270px;
-      left: 90px;
-      top: 80px;
-    
-    }
-    .sweet-haeding{
-      font-size: 14px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    .sweet-para{
-      font-size: 10px;
+    /* Sweetness Section Responsive */
+    /* Extra small devices (mobile phones, <576px) */
+    @media (max-width: 575px) {
+      .sweetness {
+        width: 95%;
+        height: auto;
+        padding-bottom: 40px;
+        padding-top: 5px;
+        margin: auto;
+      }
       
-      /* line-height: 1; */
-      font-weight: 400;
-    }
-    .sweet-para1{
-      font-size: 10px;
-     width: 100%;
-      line-height: 1;
-      font-weight: 400;
-    }
-    .sweet1{
-      width: 35px;
-      height: 35px;
-      /* object-fit: contain; */
-    }
-    .sweet-para1{
-       font-size: 10px;
-     
-      line-height: 1;
-      font-weight: 600;
-      margin-top: 15px;
-    }
-}
-
-
-
-/* ----- Small to Medium range (576px - 767px) ----- */
-@media (min-width: 576px) and (max-width: 767px) {
-  .sweetness{
-      width: 100%;
-      height: auto;
-      padding-inline: 50px;
-      padding-bottom: 80px;
-      padding-top: 50px;
-      margin: auto;
-    }
-    .sweetness .cup{
-      width: 190px;
-      height: 170px;
-      /* top: 0; */
-      left: -60px;
-      bottom: -60px;
-    }
-    
-    .sweetness .img1{
-      width: 350px;
-      height: 350px;
-      /* margin-left: -10px; */
-       
-    
-    }
-    .sweetness .img2{
-      width: 350px;
-      height: 350px;
-      left: 120px;
-      top: 100px;
-    
-    }
-    .sweet-haeding{
-      font-size: 24px;
-      font-weight: 900;
+      .sweetness .cup {
+        width: 160px;
+        height: 160px;
+        left: -10px;
+        bottom: -80px;
+      }
       
-      margin-bottom: 20px;
-    }
-    .sweet-para{
-      font-size: 12px;
+      .sweetness .img1,
+      .sweetness .img2 {
+        width: 270px;
+        height: 270px;
+      }
       
-      /* line-height: 1.; */
-      font-weight: 400;
-    }
-    .sweet-para1{
-      font-size: 12px;
-     
-      line-height: 1.1;
-      font-weight: 400;
-    }
-    .sweet1{
-      width: 35px;
-      height: 35px;
-      /* object-fit: contain; */
-    }
-    .sweet-para1{
-       font-size: 12px;
-     
-      line-height: 1.1;
-      font-weight: 600;
-      margin-top: 15px;
-    }
-}
-
-
-
-/* ----- Medium to Large range (768px - 991px) ----- */
-@media (min-width: 768px) and (max-width: 991px) {
-   .sweetness{
-      width: 95%;
-      height: auto;
-      padding-inline: 50px;
-      padding-bottom: 80px;
-      padding-top: 50px;
-    }
-    .sweetness .cup{
-      width: 190px;
-      height: 170px;
-      /* top: 0; */
-      left: -60px;
-      bottom: -60px;
-    }
-    
-    .sweetness .img1{
-      width: 450px;
-      height: 450px;
-       
-    
-    }
-    .sweetness .img2{
-      width: 450px;
-      height: 450px;
-      left: 130px;
-      top: 100px;
-    
-    }
-    .sweet-haeding{
-      font-size: 24px;
-      font-weight: 900;
+      .sweetness .img2 {
+        left: 90px;
+        top: 80px;
+      }
       
-      margin-bottom: 20px;
-    }
-    .sweet-para{
-      font-size: 12px;
+      .sweet-haeding {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
       
-      line-height: 1.6;
-      font-weight: 400;
+      .sweet-para,
+      .sweet-para1 {
+        font-size: 10px;
+        line-height: 1;
+      }
     }
-    .sweet-para1{
-      font-size: 12px;
-     
-      line-height: 1.6;
-      font-weight: 400;
-    }
-    .sweet1{
-      width: 35px;
-      height: 35px;
-      /* object-fit: contain; */
-    }
-    .sweet-para1{
-       font-size: 12px;
-     
-      line-height: 1.6;
-      font-weight: 600;
-      margin-top: 15px;
-    }
-}
 
-
-
-/* ----- Large to Extra Large range (992px - 1199px) ----- */
-@media (min-width: 992px) and (max-width: 1199px) {
-   .sweetness{
-      width: 90%;
-      height: 500px;
-      background-image: url('./sweetnes.png');
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      margin: 40px 0;
-      position: relative;
-      padding-inline: 30px;
-    }
-    .sweetness .cup{
-      width: 200px;
-      height: 180px;
-      object-fit: contain;
-      position: absolute;
-      /* top: 0; */
-      left: -60px;
-      bottom: -92px;
-    }
-    
-    .sweetness .img1{
-      width: 350px;
-      height: 350px;
-      object-fit: cover;
-      z-index: 1;
-       filter: drop-shadow(0 30px 12px rgba(0, 0, 0, 0.373));
-       
-    
-    }
-    .sweetness .img2{
-      width: 350px;
-      height: 350px;
-      object-fit: cover;
-      position: absolute;
-      left: 100px;
-      top: 75px;
-      z-index: 2;
-      filter: drop-shadow(0 30px 25px rgba(0, 0, 0, 0.341));
-    }
-    .sweet-haeding{
-      font-size: 20px;
-      font-weight: 900;
-      color: #ffffff;
-      margin-bottom: 20px;
-      font-family: "Bebas Neue", sans-serif;
-      font-style: regular !important;
-      text-transform: uppercase;
-      padding-top: 50px;
-    }
-    .sweet-para{
-      font-size: 12px;
-      color: #ffffffb6;
-      line-height: 1.3;
-      font-weight: 400;
-    }
-    .sweet-para1{
-      font-size: 12px;
-      color: #ffffffb6;
-      line-height: 1.2;
-      font-weight: 400;
-    }
-    .sweet1{
-      width: 35px;
-      height: 35px;
-      /* object-fit: contain; */
-    }
-    .sweet-para1{
-       font-size: 12px;
-      color: #ffffffb6;
-      line-height: 1.6;
-      font-weight: 600;
-      margin-top: 15px;
-    }
-}
-
-
-
-/* ----- Extra Large to XXL range (1200px - 1399px) ----- */
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .sweetness{
-      width: 90%;
+    /* Small to Medium range (576px - 767px) */
+    @media (min-width: 576px) and (max-width: 767px) {
+      .sweetness {
+        width: 100%;
+        height: auto;
+        padding-inline: 50px;
+        padding-bottom: 80px;
+        padding-top: 50px;
+        margin: auto;
+      }
       
-    }
-    .sweetness .cup{
-      width: 250px;
-      height: 220px;
-    }
-    .sweet-haeding{
-      padding-top: 20px;
-    }
-    .sweetness .img1{
-      width: 400px;
-      height: 400px;
-     
-       
-    
-    }
-    .sweetness .img2{
-      width: 400px;
-      height: 400px;
+      .sweetness .cup {
+        width: 190px;
+        height: 170px;
+        left: -60px;
+        bottom: -60px;
+      }
       
+      .sweetness .img1,
+      .sweetness .img2 {
+        width: 350px;
+        height: 350px;
+      }
+      
+      .sweetness .img2 {
+        left: 120px;
+        top: 100px;
+      }
+      
+      .sweet-haeding {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      
+      .sweet-para,
+      .sweet-para1 {
+        font-size: 12px;
+        line-height: 1.1;
+      }
     }
-   
-}
 
-/* ----- Extra Extra Large devices (very large screens, ≥1400px) ----- */
-@media (min-width: 1400px) {
-  /* Your CSS here */
-}
+    /* Medium to Large range (768px - 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+      .sweetness {
+        width: 95%;
+        height: auto;
+        padding-inline: 50px;
+        padding-bottom: 80px;
+        padding-top: 50px;
+      }
+      
+      .sweetness .cup {
+        width: 190px;
+        height: 170px;
+        left: -60px;
+        bottom: -60px;
+      }
+      
+      .sweetness .img1,
+      .sweetness .img2 {
+        width: 450px;
+        height: 450px;
+      }
+      
+      .sweetness .img2 {
+        left: 130px;
+        top: 100px;
+      }
+      
+      .sweet-haeding {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      
+      .sweet-para,
+      .sweet-para1 {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+    }
 
+    /* Large to Extra Large range (992px - 1199px) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .sweetness {
+        width: 90%;
+        height: 500px;
+        padding-inline: 30px;
+      }
+      
+      .sweetness .cup {
+        width: 200px;
+        height: 180px;
+        left: -60px;
+        bottom: -92px;
+      }
+      
+      .sweetness .img1,
+      .sweetness .img2 {
+        width: 350px;
+        height: 350px;
+      }
+      
+      .sweetness .img2 {
+        left: 100px;
+        top: 75px;
+      }
+      
+      .sweet-haeding {
+        font-size: 20px;
+        padding-top: 50px;
+      }
+      
+      .sweet-para {
+        line-height: 1.3;
+      }
+      
+      .sweet-para1 {
+        line-height: 1.2;
+      }
+    }
 
+    /* Extra Large to XXL range (1200px - 1399px) */
+    @media (min-width: 1200px) and (max-width: 1399px) {
+      .sweetness {
+        width: 90%;
+      }
+      
+      .sweetness .cup {
+        width: 250px;
+        height: 220px;
+      }
+      
+      .sweet-haeding {
+        padding-top: 20px;
+      }
+      
+      .sweetness .img1,
+      .sweetness .img2 {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    /* Seller Section Responsive Fixes */
+    @media (max-width: 1399px) {
+      .sellerh1 {
+        font-size: 120px;
+      }
+      
+      .tree1 {
+        right: -30px;
+        top: -120px;
+      }
+      
+      .coconut1 {
+        right: 30px;
+      }
+    }
     
+    @media (max-width: 1199px) {
+      .sellerh1 {
+        font-size: 100px;
+      }
+      
+      .tree {
+        height: 150px;
+        width: 120px;
+        left: -20px;
+        top: -60px;
+      }
+      
+      .tree1 {
+        height: 200px;
+        width: 150px;
+        right: -25px;
+        top: -120px;
+      }
+      
+      .coconut1 {
+        height: 120px;
+        width: 140px;
+        right: 20px;
+        top: -60px;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .sellerbest {
+        margin-top: 100px;
+        min-height: 550px;
+      }
+      
+      .sellerh1 {
+        font-size: 80px;
+        margin-top: -20px;
+      }
+      
+      .tree {
+        height: 130px;
+        width: 110px;
+        left: -15px;
+        top: -50px;
+      }
+      
+      .tree1 {
+        height: 170px;
+        width: 130px;
+        right: -20px;
+        top: -100px;
+      }
+      
+      .coconut1 {
+        height: 100px;
+        width: 120px;
+        right: 15px;
+        top: -50px;
+      }
+      
+      .carousel-wrap-best {
+        width: 90%;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .sellerbest {
+        margin-top: 80px;
+        min-height: 500px;
+        padding: 30px 0;
+      }
+      
+      .sellerh1 {
+        font-size: 60px;
+        letter-spacing: 3px;
+        margin-top: -10px;
+      }
+      
+      .tree {
+        height: 100px;
+        width: 90px;
+        left: -10px;
+        top: -40px;
+      }
+      
+      .tree1 {
+        height: 130px;
+        width: 100px;
+        right: -15px;
+        top: -80px;
+      }
+      
+      .coconut1 {
+        height: 80px;
+        width: 100px;
+        right: 10px;
+        top: -40px;
+      }
+      
+      .carousel-wrap-best {
+        width: 95%;
+        margin-top: 20px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .sellerbest {
+        margin-top: 60px;
+        min-height: 450px;
+        padding: 20px 0;
+      }
+      
+      .sellerh1 {
+        font-size: 40px;
+        letter-spacing: 2px;
+        margin-top: 0;
+      }
+      
+      .tree {
+        height: 80px;
+        width: 70px;
+        left: -5px;
+        top: -30px;
+      }
+      
+      .tree1 {
+        height: 100px;
+        width: 80px;
+        right: -10px;
+        top: -60px;
+      }
+      
+      .coconut1 {
+        height: 60px;
+        width: 80px;
+        right: 5px;
+        top: -30px;
+      }
+      
+      .carousel-wrap-best {
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- Your HTML content remains the same -->
   <div class="header d-flex justify-content-between align-items-center pt-1">
     <img src="./strawberry.png" alt="">
     <img src="./flower.png" alt="">
@@ -951,7 +1130,7 @@
           <img src="./card2.png" alt="" class="img2">
         </div>
         <div class="col-lg-6 col-12 pe-lg-5 d-flex flex-column justify-content-center  " >
-          <p class="sweet-haeding mt-5 ">Pure Ingredients, <br> Sourced Responsibly 
+          <p class="sweet-haeding mt-5 ">Pure Ingredients, <br> Sourced Responsibly 
           </p>
           <p class="sweet-para ">Inspired by the need for a healthier lifestyle without sacrificing the joy of sweetness, we set out to create natural, calorie-free sugar substitutes. Every product reflects our mission to make life sweeter and healthier for everyone.</p>
           <div class="d-flex align-items-center gap-3 ">
@@ -970,8 +1149,140 @@
       </div>
     </div>
   </div>
+  
+  <div class="sellerbest d-flex flex-column justify-content-start align-items-center">
+    <img src="./tree.png" alt="" class="tree">
+    <img src="./tree.png" alt="" class="tree1">
+    <img src="./coconut.png" alt="" class="coconut1">
 
-  <script>
+    <!-- Carousel First -->
+    <div class="carousel-wrap-best">
+      <div class="carousel-viewport mb-4">
+        <div id="track2" class="carousel-track">
+          <!-- Product Cards -->
+          <div class="product-card product-card2">
+            <div class="card-top">
+              <img class="product-img" src="./honey.png" alt="Organic Honey">
+            </div>
+            <div class="card-bottom">
+              <div class="card-title text-center">Organic Honey</div>
+              <div class="card-sub text-center">Zero Sugar</div>
+            </div>
+          </div>
+
+          <div class="product-card product-card2">
+            <div class="card-top">
+              <img class="product-img" src="./card2.png" alt="Allulose">
+            </div>
+            <div class="card-bottom">
+              <div class="card-title text-center">Allulose Sweetener</div>
+              <div class="card-sub text-center">Sugar Alternative</div>
+            </div>
+          </div>
+
+          <div class="product-card product-card2">
+            <div class="card-top">
+              <img class="product-img" src="./card3.png" alt="Erythritol">
+            </div>
+            <div class="card-bottom">
+              <div class="card-title text-center">Erythritol Sweetener</div>
+              <div class="card-sub text-center">Plant Based</div>
+            </div>
+          </div>
+          
+          <div class="product-card product-card2">
+            <div class="card-top">
+              <img class="product-img" src="./card3.png" alt="Erythritol">
+            </div>
+            <div class="card-bottom">
+              <div class="card-title text-center">Erythritol Sweetener</div>
+              <div class="card-sub text-center">Plant Based</div>
+            </div>
+          </div>
+          
+          <div class="product-card product-card2">
+            <div class="card-top">
+              <img class="product-img" src="./card3.png" alt="Erythritol">
+            </div>
+            <div class="card-bottom">
+              <div class="card-title text-center">Erythritol Sweetener</div>
+              <div class="card-sub text-center">Plant Based</div>
+            </div>
+          </div>
+          
+          <div class="product-card product-card2">
+            <div class="card-top">
+              <img class="product-img" src="./card3.png" alt="Erythritol">
+            </div>
+            <div class="card-bottom">
+              <div class="card-title text-center">Erythritol Sweetener</div>
+              <div class="card-sub text-center">Plant Based</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- nav -->
+      <button id="prev2" class="nav-btn nav-left disabled" aria-label="previous">
+        <svg viewBox="0 0 24 24"><path d="M15 18L9 12l6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button id="next2" class="nav-btn nav-right" aria-label="next">
+        <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Heading comes last -->
+    <p class="sellerh1">BEST SELLERS</p>
+  </div>
+
+
+
+
+
+
+
+
+ <section class="aspire-section container my-5">
+  <div class="row g-4 align-items-stretch">
+    <!-- Left Card -->
+    <div class="col-lg-7 col-md-12">
+      <div class="aspire-card h-100 position-relative text-white d-flex flex-column justify-content-center p-4">
+        <!-- overlay -->
+        <div class="overlay"></div>
+        <div class="content position-relative">
+          <h2 class="fw-bold text-uppercase">What Aspires Us?</h2>
+          <h4 class="fw-bold mt-3">"Bringing Natural Sweetness Everyday.”</h4>
+          <p class="mt-3">
+            We aim to lead the natural sweetener revolution, crafting innovative products 
+            that enhance well-being and make healthy living accessible to everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Card -->
+    <div class="col-lg-5 col-md-12">
+      <div class="drive-card h-100 text-white d-flex flex-column justify-content-center p-4">
+        <h2 class="fw-bold text-uppercase">What Drives Us?</h2>
+        <ul class="mt-3">
+          <li>Health First</li>
+          <li>Convenience</li>
+          <li>Sustainability</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+   <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+
+   <script>
+    // First carousel (Featured Collection)
     (function(){
       const track = document.getElementById('track');
       const prevBtn = document.getElementById('prev');
@@ -1033,12 +1344,149 @@
       slide();
 
     })();
+
+    // Second carousel (Best Sellers)
+    (function(){
+      const track = document.getElementById('track2');
+      const prevBtn = document.getElementById('prev2');
+      const nextBtn = document.getElementById('next2');
+      const cards = Array.from(track.children);
+      let index = 0;
+      let cardsPerView = 3;
+
+      function updateCardsPerView() {
+        if (window.innerWidth <= 680) {
+          cardsPerView = 1;
+        } else if (window.innerWidth <= 1000) {
+          cardsPerView = 2;
+        } else {
+          cardsPerView = 3;
+        }
+      }
+
+      function slide(){
+        updateCardsPerView();
+        
+        const gap = 28;
+        const cardWidth = 320; // Fixed card width as per your requirement
+        
+        const translateX = -index * (cardWidth + gap);
+        track.style.transform = `translateX(${translateX}px)`;
+
+        // Update buttons
+        prevBtn.classList.toggle('disabled', index <= 0);
+        nextBtn.classList.toggle('disabled', index >= cards.length - cardsPerView);
+      }
+
+      nextBtn.addEventListener('click', () => {
+        updateCardsPerView();
+        if(index < cards.length - cardsPerView){
+          index++;
+          slide();
+        }
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if(index > 0){
+          index--;
+          slide();
+        }
+      });
+
+      // Handle responsive adjustments
+      function handleResize(){
+        updateCardsPerView();
+        slide();
+      }
+
+      window.addEventListener('load', handleResize);
+      window.addEventListener('resize', handleResize);
+
+      // init immediately
+      updateCardsPerView();
+      slide();
+
+    })();
+
+// Second carousel (Best Sellers)
+(function(){
+  const track = document.getElementById('track2');
+  const prevBtn = document.getElementById('prev2');
+  const nextBtn = document.getElementById('next2');
+  const cards = Array.from(track.children);
+  let centerIndex = 0; // start index
+  let cardsPerView = 3;
+
+  function updateCardsPerView() {
+    if (window.innerWidth <= 680) {
+      cardsPerView = 1;
+    } else if (window.innerWidth <= 1000) {
+      cardsPerView = 2;
+    } else {
+      cardsPerView = 3;
+    }
+  }
+
+  function slide(){
+    updateCardsPerView();
+
+    // clamp 0 to last index
+    centerIndex = Math.max(0, Math.min(centerIndex, cards.length - 1));
+
+    // active card ko center karo
+    const containerWidth = track.parentElement.offsetWidth;
+    const activeCard = cards[centerIndex];
+    const activeCardOffset = activeCard.offsetLeft + activeCard.offsetWidth / 2;
+    const translateX = containerWidth / 2 - activeCardOffset;
+
+    track.style.transform = `translateX(${translateX}px)`;
+
+    // active card update
+    cards.forEach((card, i) => {
+      card.classList.remove("active");
+      if(i === centerIndex){
+        card.classList.add("active");
+      }
+    });
+
+    // buttons disable/enable
+    prevBtn.classList.toggle('disabled', centerIndex === 0);
+    nextBtn.classList.toggle('disabled', centerIndex === cards.length - 1);
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if(centerIndex < cards.length - 1){
+      centerIndex++;
+      slide();
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if(centerIndex > 0){
+      centerIndex--;
+      slide();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    // reset to middle card when resize
+    updateCardsPerView();
+    centerIndex = Math.floor(cardsPerView / 2);
+    slide();
+  });
+
+  window.addEventListener('load', () => {
+    updateCardsPerView();
+    centerIndex = Math.floor(cardsPerView / 2); // middle card default
+    slide();
+  });
+
+})();
+
+
   </script>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  </body>
+  </html>
+ 
 
-
-
-
+  
