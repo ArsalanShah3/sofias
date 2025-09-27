@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sofia's Navbar</title>
+  <title>Sofia's Healthy Goods</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     :root {
       --green: #0f4f36;
@@ -124,7 +127,7 @@
       line-height: 1.1;
       text-transform: uppercase;
       font-style: regular !important;
-      font-family: DirtyEgo, sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
     }
 
     .shop-now-btn {
@@ -399,7 +402,6 @@
       padding: 50px 0;
       overflow-x: hidden;
       overflow-y: visible;
-      
     }
     
     .tree {
@@ -481,138 +483,130 @@
     }
 
     .aspire-card {
-  background: url('./aspire.jpg') center/cover no-repeat;
-  border-radius: 15px;
-  min-height: 330px;
-  position: relative;
-  overflow: hidden;
-}
+      background: url('./aspire.jpg') center/cover no-repeat;
+      border-radius: 15px;
+      min-height: 330px;
+      position: relative;
+      overflow: hidden;
+    }
 
-.aspire-card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45); /* halki si black shade */
-  border-radius: 15px;
-}
+    .aspire-card .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+      border-radius: 15px;
+    }
 
-.aspire-card .content {
-  position: relative;
-  z-index: 2;
-}
+    .aspire-card .content {
+      position: relative;
+      z-index: 2;
+    }
 
-.drive-card {
-  background-color: #004d32; /* dark green */
-  border-radius: 15px;
-  min-height: 300px;
-}
+    .drive-card {
+      background-color: #004d32;
+      border-radius: 15px;
+      min-height: 300px;
+    }
 
-.aspire-card h2, 
-.drive-card h2 {
-  font-family: 'Arial Black', sans-serif;
-  letter-spacing: 1px;
-}
+    .aspire-card h2, 
+    .drive-card h2 {
+      font-family: 'Arial Black', sans-serif;
+      letter-spacing: 1px;
+    }
 
-.drive-card ul {
-  list-style: disc;
-  padding-left: 20px;
-}
+    .drive-card ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
 
-.drive-card ul li {
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
+    .drive-card ul li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
 
+    .faq-title {
+      font-family: 'Arial Black', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #4b2e1e;
+    }
 
-.faq-title {
-  font-family: 'Arial Black', sans-serif;
-  font-size: 3rem;
-  font-weight: 900;
-  color: #4b2e1e;
-}
+    .faq-accordion .accordion-item {
+      border: 1px solid #cfcfcf;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
 
-.faq-accordion .accordion-item {
-  border: 1px solid #cfcfcf;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  overflow: hidden;
-}
+    .faq-accordion .accordion-button {
+      font-weight: 600;
+      color: #2b2b2b;
+      background: #fff;
+      box-shadow: none !important;
+      position: relative;
+      padding-right: 3rem;
+    }
 
-.faq-accordion .accordion-button {
-  font-weight: 600;
-  color: #2b2b2b;
-  background: #fff;
-  box-shadow: none !important;
-  position: relative;
-  padding-right: 3rem;
-}
+    .faq-accordion .accordion-button:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
 
-.faq-accordion .accordion-button:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
+    .faq-accordion .accordion-body {
+      font-size: 0.95rem;
+      color: #555;
+    }
 
-.faq-accordion .accordion-body {
-  font-size: 0.95rem;
-  color: #555;
-}
+    /* custom circle icon */
+    .faq-accordion .toggle-icon {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #4b2e1e;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      pointer-events: none;
+    }
 
-/* custom circle icon */
-.faq-accordion .toggle-icon {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #4b2e1e;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: bold;
-  pointer-events: none;
-}
+    /* Bootstrap ke default arrow ko forcefully hide karo */
+    .accordion-button::after {
+      display: none !important;
+      background-image: none !important;
+      content: "" !important;
+    }
 
+    .icon-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background: #3c2009;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 1;
+    }
 
-/* Bootstrap ke default arrow ko forcefully hide karo */
-.accordion-button::after {
-  display: none !important;
-  background-image: none !important;
-  content: "" !important;
-}
-
-
-.accordion-button::after {
-  display: none !important; /* Bootstrap arrow hide */
-}
-
-.icon-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  margin-right: 10px;
-  border-radius: 50%;
-  background: #3c2009; /* circle color */
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.banner2 {
-  height: 500px;
-  background: url('./banner2.jpg') center/100% 100% no-repeat;
-  margin-block: 60px;
-
-}
+    .banner2 {
+      height: 500px;
+      background: url('./banner2.jpg') center/100% 100% no-repeat;
+      margin-block: 60px;
+    }
 
     /* ========== RESPONSIVE STYLES ========== */
     
@@ -764,10 +758,9 @@
         line-height: 1;
       }
       .banner2 {
-  height: 300px;
-  margin-block: 60px;
-
-}
+        height: 300px;
+        margin-block: 60px;
+      }
     }
 
     /* Small to Medium range (576px - 767px) */
@@ -810,10 +803,8 @@
         line-height: 1.1;
       }
       .banner2 {
-  height: 400px;
-  
-
-}
+        height: 400px;
+      }
     }
 
     /* Medium to Large range (768px - 991px) */
@@ -1077,9 +1068,8 @@
         margin-top: 15px;
       }
       .faq-title {
-  font-size: 2rem;
-  
-}
+        font-size: 2rem;
+      }
     }
    
     :root{
@@ -1088,8 +1078,6 @@
       --pill-bg:#f3efe9;
       --card-radius:12px;
     }
-
-  
 
     .a3-section-wrapper{
       padding: 60px 30px;
@@ -1106,7 +1094,7 @@
     }
 
     .a3-headline {
-      font-family: "Staatliches", sans-serif;
+      font-family: "Bebas Neue", sans-serif;
       font-size:48px;
       letter-spacing:2px;
       color:var(--brown);
@@ -1168,14 +1156,6 @@
       text-transform:uppercase;
     }
 
-    /* .a3-title-underline{
-      width:36px;
-      height:4px;
-      background:var(--light-brown);
-      margin-top:6px;
-      border-radius:4px;
-    } */
-
     .a3-view-link{
       display:inline-flex;
       align-items:center;
@@ -1187,7 +1167,6 @@
       font-weight:600;
       border-bottom: 1px solid black;
     }
-    /* .a3-view-link:hover{ text-decoration:underline; } */
 
     @media (max-width: 991.98px){
       .a3-headline { font-size:40px; }
@@ -1201,7 +1180,6 @@
       .a3-recipes-grid{ grid-template-columns: 1fr; }
     }
 
-
     .footer {
       height: 350px;
       width: 100%;
@@ -1213,7 +1191,7 @@
       overflow: hidden;
       color: #fff;
       display: flex;
-      align-items: center; /* center content vertically */
+      align-items: center;
     }
 
     .footer h6 {
@@ -1294,16 +1272,31 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .footer {
-        height: auto; /* small screen پر stretch ہونے دے */
-        padding: 40px 20px 160px;
-      }
-      .fcup, .ftree {
-        height: 120px;
-        width: auto;
-      }
-    }
+  @media (max-width: 768px) {
+  .footer {
+    height: auto;
+    padding: 40px 20px 20px;
+    background-size: 100% 100%;
+  }
+
+  .fcup, .ftree {
+    display: none !important;
+  }
+
+  /* Remove leftover space if parent div has padding/margin */
+  .footer-images { /* Replace with actual parent class if exists */
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+}
+
+
+
+    
+
+    
   </style>
 </head>
 
@@ -1801,7 +1794,7 @@
         <div class="col-md-3 mb-4">
           <h6>EAT SMARTER WITH US</h6>
           <p class="small">Subscribe to stay up to date with Sofia’s Healthy Goods</p>
-          <div class="subscribe-box">
+          <div class="subscribe-box" >
             <input type="email" placeholder="Enter email">
             <button>→</button>
           </div>
@@ -1819,237 +1812,16 @@
     </div>
 
     <!-- Cup & Tree fixed as per your size -->
-    <img src="./cup.png" alt="Cup" class="fcup">
+    <img src="./cup.png" alt="Cup" class="fcup" >
     <img src="./tree.png" alt="Tree" class="ftree">
   </footer>
   <!-- Footer End -->
 
-   <!-- Bootstrap JS Bundle -->
+
+ 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
-
-   <script>
-    // First carousel (Featured Collection)
-    (function(){
-      const track = document.getElementById('track');
-      const prevBtn = document.getElementById('prev');
-      const nextBtn = document.getElementById('next');
-      const cards = Array.from(track.children);
-      let index = 0;
-      let cardsPerView = 3;
-
-      function updateCardsPerView() {
-        if (window.innerWidth <= 680) {
-          cardsPerView = 1;
-        } else if (window.innerWidth <= 1000) {
-          cardsPerView = 2;
-        } else {
-          cardsPerView = 3;
-        }
-      }
-
-      function slide(){
-        updateCardsPerView();
-        
-        const gap = 28;
-        const cardWidth = 320; // Fixed card width as per your requirement
-        
-        const translateX = -index * (cardWidth + gap);
-        track.style.transform = `translateX(${translateX}px)`;
-
-        // Update buttons
-        prevBtn.classList.toggle('disabled', index <= 0);
-        nextBtn.classList.toggle('disabled', index >= cards.length - cardsPerView);
-      }
-
-      nextBtn.addEventListener('click', () => {
-        updateCardsPerView();
-        if(index < cards.length - cardsPerView){
-          index++;
-          slide();
-        }
-      });
-
-      prevBtn.addEventListener('click', () => {
-        if(index > 0){
-          index--;
-          slide();
-        }
-      });
-
-      // Handle responsive adjustments
-      function handleResize(){
-        updateCardsPerView();
-        slide();
-      }
-
-      window.addEventListener('load', handleResize);
-      window.addEventListener('resize', handleResize);
-
-      // init immediately
-      updateCardsPerView();
-      slide();
-
-    })();
-
-    // Second carousel (Best Sellers)
-    (function(){
-      const track = document.getElementById('track2');
-      const prevBtn = document.getElementById('prev2');
-      const nextBtn = document.getElementById('next2');
-      const cards = Array.from(track.children);
-      let index = 0;
-      let cardsPerView = 3;
-
-      function updateCardsPerView() {
-        if (window.innerWidth <= 680) {
-          cardsPerView = 1;
-        } else if (window.innerWidth <= 1000) {
-          cardsPerView = 2;
-        } else {
-          cardsPerView = 3;
-        }
-      }
-
-      function slide(){
-        updateCardsPerView();
-        
-        const gap = 28;
-        const cardWidth = 320; // Fixed card width as per your requirement
-        
-        const translateX = -index * (cardWidth + gap);
-        track.style.transform = `translateX(${translateX}px)`;
-
-        // Update buttons
-        prevBtn.classList.toggle('disabled', index <= 0);
-        nextBtn.classList.toggle('disabled', index >= cards.length - cardsPerView);
-      }
-
-      nextBtn.addEventListener('click', () => {
-        updateCardsPerView();
-        if(index < cards.length - cardsPerView){
-          index++;
-          slide();
-        }
-      });
-
-      prevBtn.addEventListener('click', () => {
-        if(index > 0){
-          index--;
-          slide();
-        }
-      });
-
-      // Handle responsive adjustments
-      function handleResize(){
-        updateCardsPerView();
-        slide();
-      }
-
-      window.addEventListener('load', handleResize);
-      window.addEventListener('resize', handleResize);
-
-      // init immediately
-      updateCardsPerView();
-      slide();
-
-    })();
-
-// Second carousel (Best Sellers)
-(function(){
-  const track = document.getElementById('track2');
-  const prevBtn = document.getElementById('prev2');
-  const nextBtn = document.getElementById('next2');
-  const cards = Array.from(track.children);
-  let centerIndex = 0; // start index
-  let cardsPerView = 3;
-
-  function updateCardsPerView() {
-    if (window.innerWidth <= 680) {
-      cardsPerView = 1;
-    } else if (window.innerWidth <= 1000) {
-      cardsPerView = 2;
-    } else {
-      cardsPerView = 3;
-    }
-  }
-
-  function slide(){
-    updateCardsPerView();
-
-    // clamp 0 to last index
-    centerIndex = Math.max(0, Math.min(centerIndex, cards.length - 1));
-
-    // active card ko center karo
-    const containerWidth = track.parentElement.offsetWidth;
-    const activeCard = cards[centerIndex];
-    const activeCardOffset = activeCard.offsetLeft + activeCard.offsetWidth / 2;
-    const translateX = containerWidth / 2 - activeCardOffset;
-
-    track.style.transform = `translateX(${translateX}px)`;
-
-    // active card update
-    cards.forEach((card, i) => {
-      card.classList.remove("active");
-      if(i === centerIndex){
-        card.classList.add("active");
-      }
-    });
-
-    // buttons disable/enable
-    prevBtn.classList.toggle('disabled', centerIndex === 0);
-    nextBtn.classList.toggle('disabled', centerIndex === cards.length - 1);
-  }
-
-  nextBtn.addEventListener('click', () => {
-    if(centerIndex < cards.length - 1){
-      centerIndex++;
-      slide();
-    }
-  });
-
-  prevBtn.addEventListener('click', () => {
-    if(centerIndex > 0){
-      centerIndex--;
-      slide();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    // reset to middle card when resize
-    updateCardsPerView();
-    centerIndex = Math.floor(cardsPerView / 2);
-    slide();
-  });
-
-  window.addEventListener('load', () => {
-    updateCardsPerView();
-    centerIndex = Math.floor(cardsPerView / 2); // middle card default
-    slide();
-  });
-
-})();
-
-
-// ✅ toggle + and – automatically
-document.querySelectorAll('.accordion-button').forEach(button => {
-  button.addEventListener('click', function () {
-    setTimeout(() => {
-      document.querySelectorAll('.accordion-button').forEach(btn => {
-        const icon = btn.querySelector('.toggle-icon');
-        if (btn.classList.contains('collapsed')) {
-          icon.textContent = "+";
-        } else {
-          icon.textContent = "–";
-        }
-      });
-    }, 150);
-  });
-});
-
-
-
-
-  </script>
+ 
+  
   </body>
   </html>
  
